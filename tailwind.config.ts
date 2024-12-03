@@ -9,14 +9,66 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+    },
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
+      fontFamily: {
+        sans: ["var(--font-noto_sans)"],
       },
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      addCommonColors: false,
+      themes: {
+        light: {
+          colors: {
+            background: "#ffffff",
+            foreground: "#19191a",
+            primary: {
+              DEFAULT: "#19191a",
+              foreground: "#19191a",
+            },
+            secondary: {
+              DEFAULT: "#f672ca",
+              foreground: "#f672ca",
+            },
+            danger: {
+              DEFAULT: "#e60000",
+              foreground: "#ffcccd",
+            },
+          },
+        },
+        dark: {
+          colors: {
+            background: "#1c1c22",
+            foreground: "#ffffff",
+            primary: {
+              DEFAULT: "#ffffff",
+              foreground: "#ffffff",
+            },
+            secondary: {
+              DEFAULT: "#6eccee",
+              foreground: "#6eccee",
+            },
+            danger: {
+              DEFAULT: "#e60000",
+              foreground: "#ffcccd",
+            },
+          },
+        },
+      },
+    }),
+  ],
 };
 export default config;

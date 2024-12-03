@@ -1,0 +1,143 @@
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.dark .logo-text {
+  --angle: 45deg;
+  background: linear-gradient(
+    var(--angle),
+    var(--logo-color-text),
+    var(--logo-color-triangle)
+  );
+  font-family: var(--font-brush-king);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 2.2em;
+  mask-size: contain;
+  position: absolute;
+  z-index: 10000;
+  animation: dark-logo-text 4s linear infinite;
+  perspective: 40px;
+}
+
+.light .logo-text {
+  --angle: 45deg;
+  background: linear-gradient(
+    var(--angle),
+    var(--logo-color-text),
+    var(--logo-color-triangle)
+  );
+  font-family: var(--font-brush-king);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 2.2em;
+  mask-size: contain;
+  position: absolute;
+  z-index: 10000;
+  animation: light-logo-text 4s linear infinite;
+  perspective: 40px;
+}
+
+@keyframes light-logo-text {
+  from {
+    --angle: 45deg;
+    transform: translateY(-0vh);
+  }
+
+  49.5% {
+    --angle: 360deg;
+    transform: translateY(-1vh);
+  }
+  50% {
+    --angle: 360deg;
+    transform: translateY(-1vh) scaleY(0.1) skewX(253deg);
+  }
+
+  51% {
+    --angle: 360deg;
+    transform: translateY(-1vh) scaleY(0.5) skewY(37deg);
+  }
+
+  52% {
+    --angle: 360deg;
+    transform: translateY(-0vh);
+  }
+
+  to {
+    --angle: 45deg;
+    transform: translateY(-0vh);
+  }
+}
+
+/* glitch effect */
+@keyframes dark-logo-text {
+  from {
+    --angle: 45deg;
+    transform: translateY(-0vh);
+  }
+
+  49.5% {
+    --angle: 360deg;
+    transform: translateY(-1vh);
+    filter: brightness(100%);
+  }
+  50% {
+    --angle: 360deg;
+    transform: translateY(-1vh) scaleY(0.1) skewX(253deg);
+    filter: brightness(190%);
+  }
+
+  51% {
+    --angle: 360deg;
+    transform: translateY(-1vh) scaleY(0.5) skewY(37deg);
+    filter: brightness(190%);
+  }
+
+  52% {
+    --angle: 360deg;
+    filter: brightness(190%);
+    transform: translateY(-0vh);
+  }
+
+  to {
+    --angle: 45deg;
+    transform: translateY(-0vh);
+  }
+}
+
+/* ▽ */
+.light .triangle {
+  aspect-ratio: 4/3;
+  z-index: 500;
+  perspective: 1000px;
+}
+
+.dark .triangle {
+  aspect-ratio: 4/3;
+  filter: drop-shadow(0 0 15px var(--logo-color-triangle));
+  z-index: 500;
+  perspective: 1000px;
+}
+
+.triangle:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, white, var(--logo-color-triangle));
+  clip-path: polygon(
+    6% 22%,
+    29% 94%,
+    29% 94%,
+    6% 22%,
+    94% 3%,
+    29% 94%,
+    7% 22%,
+    4% 19%,
+    29% 94%,
+    100% 0%
+  );
+}

@@ -2,26 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "./css/logo.css";
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --logo-color-text: #6eccee;
+    --logo-color-triangle: #f672ca;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  .dark {
+    --logo-color-text: #f672ca;
+    --logo-color-triangle: #6eccee;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans;
+  }
+
+  h1 {
+    @apply text-5xl xl:text-7xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-6xl;
+  }
+
+  h4 {
+    @apply text-4xl;
   }
 }
