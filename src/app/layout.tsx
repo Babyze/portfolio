@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Providers from "./components/Providers";
 import "./globals.css";
 import { Toaster } from "./components/ui/Toast";
+import { Analytics } from "@vercel/analytics/react";
 
 const brushKing = localFont({
   src: "./fonts/BrushKing-MVVPp.otf",
@@ -69,6 +70,7 @@ export default function RootLayout({
         <Providers>
           <Toaster />
           {children}
+          <Analytics />
         </Providers>
       </body>
     </html>
