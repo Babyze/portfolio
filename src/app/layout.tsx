@@ -5,6 +5,7 @@ import Providers from "./components/Providers";
 import "./globals.css";
 import { Toaster } from "./components/ui/Toast";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const brushKing = localFont({
   src: "./fonts/BrushKing-MVVPp.otf",
@@ -71,6 +72,7 @@ export default function RootLayout({
           <Toaster />
           {children}
           <Analytics />
+          <SpeedInsights />
         </Providers>
       </body>
     </html>
