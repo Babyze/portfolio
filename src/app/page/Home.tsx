@@ -3,8 +3,7 @@ import Page from "@/components/Page";
 import Social from "@/components/Social";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 import { FlipWords } from "@/components/ui/FlipWords";
-import { Button, Link } from "@nextui-org/react";
-import Image from "next/image";
+import { Button, Link, Image as NextUIImage } from "@nextui-org/react";
 import { FaDownload } from "react-icons/fa";
 
 function Information() {
@@ -64,11 +63,10 @@ export default function Home() {
 
         <div className="pr-15 order-1 xl:order-none mb-8 xl:mb-0">
           <BackgroundGradient className="h-72 w-72 md:h-96 md:w-96">
-            <Image
-              className="rounded-full"
+            <NextUIImage
               src={"/assets/dang_huynh_anh.jpg"}
-              fill
               alt="Dang Huynh Anh"
+              className="rounded-full w-72 h-72 md:w-96 md:h-96"
             />
           </BackgroundGradient>
         </div>
