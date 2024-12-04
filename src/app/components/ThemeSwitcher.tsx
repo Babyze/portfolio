@@ -18,6 +18,7 @@ export default function ThemeSwticher() {
       color="secondary"
       variant="bordered"
       className="text-secondary text-xl"
+      aria-label="Change theme"
     >
       <LuMoonStar className="hidden dark:inline" />
       <LuSunMoon className="dark:hidden" />
